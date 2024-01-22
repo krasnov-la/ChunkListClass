@@ -833,7 +833,7 @@ namespace fefu_laboratory_two
 		/// @return terator pointing to the emplaced element.
 		template <class... Args>
 		iterator emplace(const_iterator pos, Args&&... args) {
-			auto data = { std::forward<Args>(args)... };
+			auto data = { args... };
 			return insert(pos, data);
 		};
 
@@ -901,7 +901,7 @@ namespace fefu_laboratory_two
 		/// @return A reference to the inserted element.
 		template <class... Args>
 		reference emplace_back(Args&&... args) {
-			auto data = { std::forward<Args>(args)... };
+			auto data = { args... };
 			auto it = data.begin();
 			for (; it != data.end(); it++)
 				push_back(*it);
@@ -932,7 +932,7 @@ namespace fefu_laboratory_two
 		/// @return A reference to the inserted element.
 		template <class... Args>
 		reference emplace_front(Args&&... args) {
-			auto data = { std::forward<Args>(args)... };
+			auto data = { args... };
 			auto it = data.end() - 1;
 			while (true)
 			{
